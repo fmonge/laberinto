@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1432696233 source:c:\users\admin\documents\universidad\estructura de datos\proyectos\laberinto\main.cpp
+	<iostream>
+	<time.h>
+	<ctime>
+	"include/grafo.h"
+
+1432701983 c:\users\admin\documents\universidad\estructura de datos\proyectos\laberinto\include\grafo.h
+	"LinkedList.h"
+	"ArrayList.h"
+	<winbgim.h>
+	<time.h>
+
+1432602682 c:\users\admin\documents\universidad\estructura de datos\proyectos\laberinto\include\linkedlist.h
+	"Node.h"
+	<stdlib.h>
+	<stdexcept>
+	<iostream>
+
+1429150501 c:\users\admin\documents\universidad\estructura de datos\proyectos\laberinto\include\node.h
+	<stdlib.h>
+
+1432583849 c:\users\admin\documents\universidad\estructura de datos\proyectos\laberinto\include\arraylist.h
+	<string>
+	<limits>
+	<stdexcept>
+
