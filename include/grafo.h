@@ -87,9 +87,9 @@ class Grafo
             visitados[i] = 0;
 
         agregarVecinosGrafo();
-        //srand (time(NULL));
-        //int infiniteRandom= rand()%101+1;
-        crearLaberinto(0,1);
+        srand (time(NULL));
+        int infiniteRandom= rand()%1001+1;
+        crearLaberinto(0,infiniteRandom);
 
         dibujarArco();
         dibujarNodos();
@@ -112,8 +112,8 @@ class Grafo
     }
 
     void dibujarArco(){
-        setfillstyle(SOLID_FILL, 30);{
-        for(int n=0; n<cantidadNodos; n++)
+        setfillstyle(SOLID_FILL, 30);
+        for(int n=0; n<cantidadNodos; n++){
             for(laberinto[n].goToStart();
                     laberinto[n].getPos() < laberinto[n].getSize();
                     laberinto[n].next())
@@ -212,13 +212,13 @@ class Grafo
             fillellipse(x1+4,y1+4,3.5,3.5);
 
         }
-        for(int i=0;i<cantidadNodos;i++){
+        /*for(int i=0;i<cantidadNodos;i++){
             for(laberinto[i].goToStart();
                 laberinto[i].getPos()<laberinto[i].getSize();
                 laberinto[i].next()){
                     cout<<laberinto[i].getElement()<<" ,";}
             cout<<endl;
-        }
+        }*/
 
 
     }

@@ -91,7 +91,7 @@ public:
         }
     if (current == NULL){
 
-        throw runtime_error("La lista est?vacía");
+        throw runtime_error("La lista está vacía");
         }
     return current -> next -> element;
 

@@ -51,8 +51,8 @@ int main()
             extra+=30;
         if (nivel==17)
             extra+=30;
-        if (nivel>=20)
-            extra+=20;
+        if (nivel>=19)
+            extra+=25;
 
         tiempo=(tiempo-segundos)+extra;
         cout<<"Tiempo para el siguiente nivel: "<<tiempo<<" segundos"<<endl;
