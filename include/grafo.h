@@ -59,7 +59,7 @@ class Grafo
 
     void crearLaberinto(int ini,int infiniteRandom){
         int random;
-        visitados[ini] = 1;
+        //visitados[ini] = 1;
         while (ListadeAdyacencia[ini].getSize() > 0){
             //for(int i=0;i<infiniteRandom;i++){
                 random = rand()%ListadeAdyacencia[ini].getSize();
@@ -93,13 +93,13 @@ class Grafo
 
         dibujarArco();
         dibujarNodos();
-        //ponerItems();
+        ponerItems();
     }
 
 
     void dibujarNodos(){
         setfillstyle(SOLID_FILL, 15); // 15 = blanco
-        for (int f = 0; f < filas ; f++)
+        for (int f = 0; f < filas ; f++){
             for (int c = 0; c < columnas ; c++){
                 int x = largoCeldas + largoCeldas * 2 * c;
                 int y = largoCeldas + largoCeldas * 2 * f;
@@ -107,11 +107,12 @@ class Grafo
                     setfillstyle(USER_FILL,10);
                 bar(x, y, x + largoCeldas, y + largoCeldas);
             }
-
+        }
+        kbhit();
     }
 
     void dibujarArco(){
-        setfillstyle(SOLID_FILL, 30);
+        setfillstyle(SOLID_FILL, 30);{
         for(int n=0; n<cantidadNodos; n++)
             for(laberinto[n].goToStart();
                     laberinto[n].getPos() < laberinto[n].getSize();
@@ -124,6 +125,8 @@ class Grafo
                 int y2 = (laberinto[n].getElement() / columnas) * largoCeldas * 2 + largoCeldas*2;
                 bar(x1, y1, x2, y2);
             }
+        }
+        kbhit();
 
     }
 
@@ -147,26 +150,26 @@ class Grafo
 
     void botones(){
        char  boton = getch();
-       cout << " = > " << tortuga << " - " << columnas << endl;
+       //cout << " = > " << tortuga << " - " << columnas << endl;
 
         if(boton=='w'||boton=='H')
             if ((tortuga/columnas)!= 0)
-                //if(validarMovimiento(tortuga - columnas))
+                if(validarMovimiento(tortuga - columnas))
                     tortuga=tortuga - columnas;
 
         if(boton=='s'||boton=='P')
             if((tortuga/columnas)!=(filas-1))
-               //if(validarMovimiento(tortuga + columnas))
+               if(validarMovimiento(tortuga + columnas))
                     tortuga=tortuga+columnas;
 
         if(boton=='a'||boton=='K')
             if(tortuga%columnas!=0)
-                //if(validarMovimiento(tortuga-1))
+                if(validarMovimiento(tortuga-1))
                     tortuga=tortuga-1;
 
         if(boton=='d'||boton=='M')
             if((tortuga+1)%(columnas)!=0)
-                 //if(validarMovimiento(tortuga+1))
+                 if(validarMovimiento(tortuga+1))
                     tortuga = tortuga+1;
 
 
@@ -188,6 +191,7 @@ class Grafo
         setcolor(4);
         setfillstyle(SOLID_FILL, 4);
         fillellipse(x,y,3.5,3.5);
+        kbhit();
     }
     void ponerItems(){
 
@@ -208,13 +212,15 @@ class Grafo
             fillellipse(x1+4,y1+4,3.5,3.5);
 
         }
-        /*for(int i=0;i<cantidadNodos;i++)
-            for(ListadeAdyacencia[i].goToStart();
-                ListadeAdyacencia[i].getPos()<ListadeAdyacencia[i].getSize();
-                ListadeAdyacencia[i].next())
-                    cout<<ListadeAdyacencia[i].getElement()<<endl;
+        for(int i=0;i<cantidadNodos;i++){
+            for(laberinto[i].goToStart();
+                laberinto[i].getPos()<laberinto[i].getSize();
+                laberinto[i].next()){
+                    cout<<laberinto[i].getElement()<<" ,";}
+            cout<<endl;
+        }
 
-        */
+
     }
 
     int victoria(){
@@ -240,7 +246,6 @@ class Grafo
                 }
 
             Tortuga(posicionAnte);
-            kbhit();
             posicionAnte=tortuga;
             botones();
         }

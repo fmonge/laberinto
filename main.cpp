@@ -18,7 +18,7 @@ int main()
 {
     int filas=3;
     int columnas=3;
-    int nivel=3;
+    int nivel=0;
     int puntuaje=0;
     int extra=10;
     int tiempo=10;
@@ -45,14 +45,14 @@ int main()
 
         if (tiempo<segundos)
             break;
-        if (nivel==8)
-            extra+=30;
+        if (nivel==7)
+            extra+=40;
         if (nivel==11)
             extra+=30;
         if (nivel==17)
             extra+=30;
-        if (nivel>=22)
-            extra+=15;
+        if (nivel>=20)
+            extra+=20;
 
         tiempo=(tiempo-segundos)+extra;
         cout<<"Tiempo para el siguiente nivel: "<<tiempo<<" segundos"<<endl;
